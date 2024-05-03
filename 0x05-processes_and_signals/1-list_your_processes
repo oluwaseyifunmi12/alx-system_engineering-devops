@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script displays it's own PID
+
+ps -auxf
