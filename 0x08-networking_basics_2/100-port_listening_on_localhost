@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#a script or listen
+
+nc -l localhost 98
