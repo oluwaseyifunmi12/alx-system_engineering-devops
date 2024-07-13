@@ -37,7 +37,6 @@ frontend web_server
 	bind *:80
         bind *:443 ssl crt /etc/haproxy/certs/www.greendays.tech.pem
         http-request set-header X-Forwarded-Proto https
-	default_backend web_server
 
 backend www-backend
         balance roundrobin
