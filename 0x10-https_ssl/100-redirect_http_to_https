@@ -36,12 +36,13 @@ defaults
 frontend web_server
 	bind *:80
         bind *:443 ssl crt /etc/haproxy/certs/www.greendays.tech.pem
-        redirect scheme https code 301 if !{ ssl_fc }
         http-request set-header X-Forwarded-Proto https
+	default_backend web_server
 
 backend www-backend
         balance roundrobin
         option httpclose
 	option forwardfor
-        server 305008-web-01 34.232.77.171:80 check
+        redirect scheme https code 301 if !{ ssl_fc }
+	server 305008-web-01 34.232.77.171:80 check
         server 305008-web-02 54.237.18.112:80 check
