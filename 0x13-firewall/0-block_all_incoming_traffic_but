@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Configuring a ufw 
 
 sudo apt-get update
