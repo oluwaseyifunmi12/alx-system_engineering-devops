@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# configuring a ufw
+#configuring a ufw to deny incoming traffic
+#and select ports
+
 sudo apt-get update -y
 sudo apt-get install ufw -y
 
