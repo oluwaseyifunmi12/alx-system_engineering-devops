@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#installs and setup haproxy
+
+sudo apt update
+sudo apt install haproxy
+
+echo "ENABLED=1" > /etc/default/haproxy
+
+# Listen to web1 and web2 servers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+echo "
+   listen load_balancer
+   bind *:80
+   mode http
+   balance roundrobin
+   option httpclose
+   option forwardfor
+   server 305008-web-01 34.232.77.171:80 check
+   server 305008-web-02 54.237.18.112:80 check
+" >> /etc/haproxy/haproxy.cfg
+
+service haproxy start
